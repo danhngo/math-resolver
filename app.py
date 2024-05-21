@@ -68,4 +68,4 @@ def solve_math_problem(image_data):
     return response_json["choices"][0]["text"].strip()
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', debug=True)
