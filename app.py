@@ -21,10 +21,9 @@ app.layout = dbc.Container([
         ], type="default"), className="text-center mt-4")
     ]),
     dcc.Store(id="image-store"),
-    html.Script(src="/assets/camera.js"),
-    dcc.Input(id='input-on-submit', type='hidden')
+    dcc.Input(id='input-on-submit', type='hidden'),
+    html.Script(src='/assets/camera.js')
 ])
-
 @app.callback(
     Output('output-image', 'children'),
     Output('image-store', 'data'),
@@ -57,7 +56,7 @@ def solve_math_problem(image_data):
         "Content-Type": "application/json"
     }
     data = {
-        "model": "gpt-4o",
+        "model": "gpt-4-vision",
         "prompt": "Solve the math problem in the provided image.",
         "image": image_data,
         "max_tokens": 200
@@ -68,4 +67,4 @@ def solve_math_problem(image_data):
     return response_json["choices"][0]["text"].strip()
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', debug=True)
+    app.run_server(debug=True)
