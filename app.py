@@ -88,7 +88,7 @@ def solve_math(base64_image):
     response = client.chat.completions.create(
         model=MODEL,
         messages=[
-            {"role": "system", "content": "You are a helpful assistant that responds in Markdown. Help me with my math homework!"},
+            {"role": "system", "content": "You are a helpful assistant that responds in simple text. Help me with my math homework!"},
             {"role": "user", "content": [
                 {"type": "text", "text": "pls help to do math or verify the answer"},
                 {"type": "image_url", "image_url": {
