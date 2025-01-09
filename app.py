@@ -82,7 +82,8 @@ def process_image(image_data):
 def solve_math(base64_image):
     ## Set the API key and model name
     MODEL="gpt-4o"
-    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "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"))
+    api_key = "<your_api_key>"
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", api_key))
 
     
     response = client.chat.completions.create(
